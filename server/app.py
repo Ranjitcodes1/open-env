@@ -4,6 +4,7 @@ Exposes standard endpoints for remote evaluation.
 """
 
 import os
+import uvicorn
 from typing import Optional, List
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import RedirectResponse
@@ -139,7 +140,11 @@ async def baseline():
     return BaselineResponse(scores=scores, details=details)
 
 
-if __name__ == "__main__":
-    import uvicorn
+def main():
+    """Entry point for the server script."""
     port = int(os.environ.get("PORT", 7860))
     uvicorn.run(app, host="0.0.0.0", port=port)
+
+
+if __name__ == "__main__":
+    main()
