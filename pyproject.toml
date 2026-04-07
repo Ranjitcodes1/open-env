@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "StyleSenseEnv"
+version = "1.0.1"
+authors = [
+  { name="Ranjit Das", email="ranjitatwork01@gmail.com" },
+]
+description = "AI-Powered Styling Recommendation OpenEnv Environment"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "numpy",
+    "gymnasium",
+    "stable-baselines3",
+    "matplotlib",
+    "openai",
+    "requests",
+    "huggingface-hub",
+]
+
+[project.urls]
+"Homepage" = "https://huggingface.co/spaces/RanjitBuilds/StyleSenseEnv"
+"Bug Tracker" = "https://github.com/Ranjitcodes1/open-env/issues"
