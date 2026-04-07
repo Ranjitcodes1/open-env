@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+.venv/
+env/ (only if local virtualenv named env)
+*.log
+.pytest_cache/
+
+# StyleSenseEnv specific
+baseline_scores.json
+ StyleSenseEnv/__pycache__/
+StyleSenseEnv/env/__pycache__/
+ StyleSenseEnv/tasks/__pycache__/
+validator_results.json (if any)

@@ -1,0 +1,51 @@
+name: StyleSenseEnv
+description: >
+  AI-powered styling recommendation environment. An agent learns to suggest
+  outfits based on body type, occasion, cultural context, weather, budget,
+  and evolving fashion trends. Simulates the real-world task of personal
+  styling with multi-objective optimization.
+version: "1.0.0"
+author: "YourName"
+tags:
+  - openenv
+  - fashion
+  - styling
+  - recommendation
+  - real-world
+
+observation_space:
+  type: object
+  description: "User profile, occasion, wardrobe, weather, trends, budget"
+  
+action_space:
+  type: object
+  description: "Outfit selection (top, bottom, shoes, outerwear, accessories) with reasoning"
+
+reward_range: [-1.0, 1.0]
+
+tasks:
+  - id: easy
+    name: "Single Outfit Recommendation"
+    description: "Recommend one appropriate outfit for a given body type and occasion"
+    difficulty: easy
+    max_steps: 1
+    
+  - id: medium
+    name: "Full-Day Multi-Occasion Styling"
+    description: "Plan outfits for 3-4 events in a single day using a shared wardrobe"
+    difficulty: medium
+    max_steps: 4
+    
+  - id: hard  
+    name: "Weekly Wardrobe Optimization"
+    description: "Style a full week with budget constraints, changing weather, and trend shifts"
+    difficulty: hard
+    max_steps: 21  # 3 outfits/day × 7 days
+
+endpoints:
+  step: /step
+  reset: /reset
+  state: /state
+  tasks: /tasks
+  grader: /grader
+  baseline: /baseline
