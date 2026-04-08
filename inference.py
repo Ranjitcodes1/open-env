@@ -130,7 +130,8 @@ async def run_episode(task_id: str):
         grade_resp = requests.post(f"{ENV_URL}/grader", params={"task_id": task_id})
         if grade_resp.status_code == 200:
             grade_data = grade_resp.json()
-            score = min(max(grade_data["score"], 0.0), 1.0) # Explicit Clamp to [0,1]
+            # USE STRICT CLAMP (0.01, 0.99) TO SATISFY VALIDATOR
+            score = min(max(grade_data["score"], 0.01), 0.99)
             success = grade_data["passed"]
 
     finally:
