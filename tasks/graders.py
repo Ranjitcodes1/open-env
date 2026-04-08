@@ -9,7 +9,7 @@ from env.config import PASSING_THRESHOLDS
 
 def grade_easy(episode_summary: Dict) -> Dict:
     """Grade 'easy' task: Single outfit match."""
-    avg_reward = max(0.0, min(1.0, episode_summary.get("average_reward", 0.0)))
+    avg_reward = max(0.01, min(0.99, episode_summary.get("average_reward", 0.0)))
     threshold = PASSING_THRESHOLDS["easy"]
     
     passed = avg_reward >= threshold
@@ -31,7 +31,7 @@ def grade_medium(episode_summary: Dict) -> Dict:
     if unique_items < 5:
         final_score *= 0.8
     
-    final_score = max(0.0, min(1.0, final_score))
+    final_score = max(0.01, min(0.99, final_score))
     passed = final_score >= threshold
     return {
         "score": round(final_score, 4),
@@ -46,7 +46,7 @@ def grade_medium(episode_summary: Dict) -> Dict:
 
 def grade_hard(episode_summary: Dict) -> Dict:
     """Grade 'hard' task: 21 events, budget and trends."""
-    avg_reward = max(0.0, min(1.0, episode_summary.get("average_reward", 0.0)))
+    avg_reward = max(0.01, min(0.99, episode_summary.get("average_reward", 0.0)))
     budget_used = episode_summary.get("budget_used", 0.0)
     threshold = PASSING_THRESHOLDS["hard"]
 
